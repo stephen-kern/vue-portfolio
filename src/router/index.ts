@@ -2,15 +2,15 @@ import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
 import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Projects from "../views/Projects.vue";
-import Contact from "../views/Contact.vue";
+// import About from "../views/About.vue";
+// import Projects from "../views/Projects.vue";
+// import Contact from "../views/Contact.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "/", name: "Home", component: Home },
-  { path: "/about", name: "About", component: About },
-  { path: "/projects", name: Projects, component: Projects },
-  { path: "/contact", name: Contact, component: Contact },
+//   { path: "/about", name: "About", component: About },
+//   { path: "/projects", name: Projects, component: Projects },
+//   { path: "/contact", name: Contact, component: Contact },
 ];
 
 const router = createRouter({
@@ -18,4 +18,4 @@ const router = createRouter({
   routes,
 });
 
-export default router
+export default router;
