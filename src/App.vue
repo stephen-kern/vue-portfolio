@@ -1,14 +1,10 @@
 <script setup lang="ts">
+import Navbar from './components/Navbar.vue';
 </script>
 
 <template>
   <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/projects">Projects</router-link>
-      <router-link to="/contact">Contact</router-link>
-    </nav>
+    <Navbar />
     <main>
       <router-view />
     </main>
