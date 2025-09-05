@@ -2,41 +2,55 @@
   <header>
     <div class="navbar-container">
       <nav class="navbar">
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-          <li><router-link to="/projects">Projects</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
-        </ul>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/projects">Projects</router-link>
+        <router-link to="/contact">Contact</router-link>
       </nav>
     </div>
   </header>
 </template>
 
 <style scoped>
-.navbar {
-  background-color: aliceblue;
+header {
+  width: 100%;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.3rem;
+.navbar-container {
+  max-width: 1200px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.navbar{
+  margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
 }
 
-.navbar ul li {
+.navbar a{
   font-size: 1.2rem;
   cursor: pointer;
+  color: floralwhite;
+  position: relative;
 }
 
-li a {
-  color: black;
+.navbar a:hover {
+  
 }
 
-header nav ul li a:hover {
-  color: green;
+.navbar a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  bottom: -3px;  
+  transition: width 0.3s ease;
+  background-color: cornflowerblue;
 }
 </style>
