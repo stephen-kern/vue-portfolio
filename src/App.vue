@@ -1,23 +1,19 @@
 <script setup lang="ts">
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/projects">Projects</router-link>
-      <router-link to="/contact">Contact</router-link>
-    </nav>
-    <main>
-      <router-view />
-    </main>
-    <footer>
-      <p>© 2025 Stephen Kern</p>
-    </footer>
-  </div>
+  <header>
+    <Navbar />
+  </header>
+
+  <main>
+    <router-view />
+  </main>
+
+  <footer>
+    <p>© 2025 Stephen Kern</p>
+  </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

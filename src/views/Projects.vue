@@ -1,21 +1,24 @@
 <script setup lang="ts">
+import Card from "../components/ProjectCard.vue";
+
 interface Project {
   id: number;
   title: string;
   description: string;
+  img?: string;
+  ghLink?: string;
+  liveLink?: string;
 }
 
-const projects: Project[] = [
+const projectsData: Project[] = [
   {
     id: 1,
-    img: "@/assets/programming.jpg",
     title: "Professional Projects",
     description:
       "Professional WordPress & web development projects available upon request",
   },
   {
     id: 2,
-    img: "@/assets/Jake-Wilson-Art.png",
     title: "Fine Arts Portfolio",
     description:
       "A React-based fine arts portfolio created for a friend, with libraries from Material-UI (MUI) and EmailJS. The portfolio showcases different art forms from the artist and allows for easy communication from the viewer through a cloud-based email service.",
@@ -24,26 +27,29 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    img: "@/assets/advice-genie.png",
     title: "Advice Genie",
     description:
       "This is a simple React web app that generates a random piece of advice from the AdviceSlipAPI. Made for fun to practice API consumption.",
     ghLink: "https://github.com/stephen-kern/advicegenie",
     liveLink: "https://advicegenie.vercel.app/",
   },
-  { id: 2, title: "Cool App", description: "An app that does something cool." },
 ];
 </script>
 
 <template>
-  <section>
-    <h1>Projects</h1>
-    <ul>
-      <li v-for="project in projects" :key="project.id">
-        <h2>{{ project.title }}</h2>
-        <p>{{ project.description }}</p>
-      </li>
-    </ul>
+  <section id="projects-section" class="grid-container">
+    <h2 class="section-title">Projects</h2>
+    <div class="columns">
+      <Card
+        v-for="project in projectsData"
+        :key="project.id"
+        :img="project.img"
+        :title="project.title"
+        :description="project.description"
+        :gh-link="project.ghLink"
+        :live-link="project.liveLink"
+      />
+    </div>
   </section>
 </template>
 
