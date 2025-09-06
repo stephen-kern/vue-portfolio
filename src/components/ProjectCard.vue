@@ -33,9 +33,8 @@ const props = defineProps<ProjectCardProps>();
 
 <style scoped>
 .card {
-  border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   background: white;
 }
