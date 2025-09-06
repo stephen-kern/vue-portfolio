@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import Navbar from './components/Navbar.vue';
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <div>
+  <header>
     <Navbar />
-    <main>
-      <router-view />
-    </main>
-    <footer>
-      <p>© 2025 Stephen Kern</p>
-    </footer>
-  </div>
+  </header>
+
+  <main>
+    <router-view />
+  </main>
+
+  <footer>
+    <p>© 2025 Stephen Kern</p>
+  </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
