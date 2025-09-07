@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Card from "../components/ProjectCard.vue";
+import jwp from '../assets/Jake-Wilson-Art.png';
+import workcard from "../assets/programming.jpg";
+import advgen from "../assets/advice-genie.png";
 
 interface Project {
   id: number;
@@ -16,6 +19,7 @@ const projectsData: Project[] = [
     title: "Professional Projects",
     description:
       "Professional WordPress & web development projects available upon request",
+    img: workcard
   },
   {
     id: 2,
@@ -24,6 +28,7 @@ const projectsData: Project[] = [
       "A React-based fine arts portfolio created for a friend, with libraries from Material-UI (MUI) and EmailJS. The portfolio showcases different art forms from the artist and allows for easy communication from the viewer through a cloud-based email service.",
     ghLink: "https://github.com/stephen-kern/Jake-Wilson-Portfolio",
     liveLink: "https://jake-wilson-portfolio.vercel.app/",
+    img: jwp
   },
   {
     id: 3,
@@ -32,6 +37,7 @@ const projectsData: Project[] = [
       "This is a simple React web app that generates a random piece of advice from the AdviceSlipAPI. Made for fun to practice API consumption.",
     ghLink: "https://github.com/stephen-kern/advicegenie",
     liveLink: "https://advicegenie.vercel.app/",
+    img: advgen
   },
 ];
 </script>
