@@ -18,7 +18,7 @@ const projectsData: Project[] = [
     id: 1,
     title: "Professional Projects",
     description:
-      "Professional WordPress & web development projects available upon request",
+      "Professional WordPress & web development projects available upon request. Check out my resume for more information.",
     img: workcard
   },
   {
