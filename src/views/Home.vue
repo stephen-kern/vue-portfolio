@@ -1,6 +1,21 @@
 <script setup lang="ts">
 const name: string = "Stephen Kern";
-import { ArrowBigDown } from "lucide-vue-next";
+import { ChevronsDown } from "lucide-vue-next";
+import { ref, onMounted, onUnmounted } from "vue";
+
+const scrollY = ref(0);
+
+const handleScroll = () => {
+  scrollY.value = window.scrollY;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
@@ -11,11 +26,18 @@ import { ArrowBigDown } from "lucide-vue-next";
     <h2>Detail-driven development with real-world impact</h2>
 
     <div class="cta-space">
-      <ArrowBigDown />
+      <ChevronsDown
+        class="chevrons"
+        :size="72"
+        :style="{
+          opacity: Math.max(1 - scrollY / 550, 0), // Fade out as you scroll down
+          transition: 'opacity 0.3s ease',
+        }"
+      />
     </div>
   </section>
-  <section>
-    <div class="story-section">
+  <section class="story-section">
+    <div class="story-grid">
       <img
         class="pfp"
         src="../assets/summer24square.JPG"
@@ -23,31 +45,16 @@ import { ArrowBigDown } from "lucide-vue-next";
       />
       <div class="story">
         <p>
-          I am a Front-End Developer passionate about building websites that are
-          clean, user-friendly, and engaging.
+          I’m Stephen, a Front-End Developer who builds clean, user-friendly
+          websites that support business goals. 
           <br /><br />
-          At Enertech Global, I maintain and improve WordPress and Joomla!
-          sites, create custom PHP features, and implement AJAX-powered
-          filtering to give users smooth, intuitive experiences. I enjoy solving
-          problems, collaborating with teams, and writing code that’s organized
-          and functional.
+          At Enertech Global, I maintain and enhance WordPress and Joomla! sites, develop custom PHP features,
+          and create AJAX-powered solutions for smooth user experiences. 
           <br /><br />
-          My background includes earning a Full-Stack Development Certificate
-          from Washington University in St. Louis, where I gained hands-on
-          experience with React, Node, and SQL.
-          <br /><br />
-          My design approach leans toward clean and organic solutions, creating
-          websites that feel natural, intuitive, and visually appealing while
-          keeping functionality at the forefront.
-          <br /><br />
-          Outside of coding, you’ll find me exploring new music and art,
-          cooking, staying active on my bike or skateboard, gaming, or planning
-          my next travel adventure.
-          <br /><br />
-          Looking ahead, I’m excited to expand my skills into full-stack and
-          backend development. I enjoy the structure, logic, and problem-solving
-          these areas offer, and I’m eager to take on projects that challenge me
-          to grow as a developer.
+          My
+          experience spans front-end and full-stack technologies, and I’m
+          excited to continue growing into backend and full-stack roles where I
+          can take on new challenges.
         </p>
       </div>
     </div>
@@ -58,18 +65,42 @@ import { ArrowBigDown } from "lucide-vue-next";
 .cta {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   text-align: center;
-  min-height: 90vh;
+  height: 80vh;
+  padding: 2em;
 }
 
 .cta-space {
   text-align: center;
+  margin-top: auto;
 }
 .cta h2 {
   font-size: 4rem;
 }
+
 .story-section {
+  height: 100vh;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.chevrons{
+  animation: pulse 2s infinite;
+}
+
+.story-grid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,6 +112,12 @@ import { ArrowBigDown } from "lucide-vue-next";
   max-width: 600px;
   text-align: left;
 }
+
+.story p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
 .pfp {
   border-radius: 50%;
   max-width: 500px;

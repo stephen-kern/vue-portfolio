@@ -16,4 +16,6 @@ import Navbar from "./components/Navbar.vue";
   </footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
