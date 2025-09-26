@@ -43,20 +43,19 @@ onUnmounted(() => {
         src="../assets/summer24square.JPG"
         alt="stephen kern in the wild"
       />
-      <div class="story">
-        <p>
-          I’m Stephen, a Front-End Developer who builds clean, user-friendly
-          websites that support business goals. 
-          <br /><br />
-          At Enertech Global, I maintain and enhance WordPress and Joomla! sites, develop custom PHP features,
-          and create AJAX-powered solutions for smooth user experiences. 
-          <br /><br />
-          My
-          experience spans front-end and full-stack technologies, and I’m
-          excited to continue growing into backend and full-stack roles where I
-          can take on new challenges.
-        </p>
-      </div>
+
+      <p>
+        I’m Stephen, a Front-End Developer who builds clean, user-friendly
+        websites that support business goals.
+        <br /><br />
+        At Enertech Global, I maintain and enhance WordPress and Joomla! sites,
+        develop custom PHP features, and create AJAX-powered solutions for
+        smooth user experiences.
+        <br /><br />
+        My experience spans front-end and full-stack technologies, and I’m
+        excited to continue growing into backend and full-stack roles where I
+        can take on new challenges.
+      </p>
     </div>
   </section>
 </template>
@@ -78,8 +77,8 @@ onUnmounted(() => {
   font-size: 4rem;
 }
 
-.story-section {
-  height: 100vh;
+.story-grid {
+  height: 90vh;
   padding: 2em;
   display: flex;
   justify-content: center;
@@ -96,7 +95,7 @@ onUnmounted(() => {
   }
 }
 
-.chevrons{
+.chevrons {
   animation: pulse 2s infinite;
 }
 
@@ -105,17 +104,11 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   gap: 5em;
-  flex-wrap: wrap;
-}
-.story {
-  float: right;
-  max-width: 600px;
-  text-align: left;
 }
 
-.story p {
-  font-size: 1.5rem;
-  line-height: 1.6;
+p {
+  font-size: 1.3rem;
+  line-height: 1.5;
 }
 
 .pfp {
