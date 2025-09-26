@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const name: string = "Stephen Kern";
+import SkillsBar from "../components/SkillsBar.vue";
 import { ChevronsDown } from "lucide-vue-next";
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -57,6 +58,9 @@ onUnmounted(() => {
         can take on new challenges.
       </p>
     </div>
+  </section>
+  <section>
+    <SkillsBar />
   </section>
 </template>
 
