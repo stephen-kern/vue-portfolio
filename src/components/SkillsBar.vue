@@ -45,21 +45,18 @@ const icons = [
     alt: "GitHub",
   },
 ];
+
+const repeats = 2;
+
+const repeatedIcons = Array.from({ length: repeats }, () => icons).flat();
 </script>
 
 <template>
-  <div class="skills-carousel">
-    <div class="carousel-track">
+  <div class="ticker">
+    <div class="ticker-track">
       <img
-        v-for="(icon, i) in icons"
+        v-for="(icon, i) in repeatedIcons"
         :key="i"
-        :src="icon.src"
-        :alt="icon.alt"
-      />
-      <!-- Duplicate the icons for seamless scrolling -->
-      <img
-        v-for="(icon, i) in icons"
-        :key="'dup-' + i"
         :src="icon.src"
         :alt="icon.alt"
       />
@@ -68,31 +65,34 @@ const icons = [
 </template>
 
 <style scoped>
-.skills-carousel {
+.ticker {
   overflow: hidden;
-  width: 100%;
-  padding: 1rem 0;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.carousel-track {
+.ticker-track {
   display: flex;
   gap: 2rem;
-  animation: scroll 20s linear infinite;
-  width: max-content;
+  animation: scroll 10s linear infinite;
 }
 
-.carousel-track img {
-  height: 50px;
-  width: 50px;
+.ticker-track img {
+  height: 80px;
+  width: 80px;
   flex-shrink: 0;
+  user-select: none;
 }
+
+.ticker-track img:hover {
+  animation-play-state: paused;
+} 
 
 @keyframes scroll {
   from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+    transform: translateX(0%); /* scroll by 1 set's width if 3 repeats */
+  } to {
+    transform: translateX(-33.333%); /* scroll by 1 set's width if 3 repeats */
   }
 }
 </style>
