@@ -158,10 +158,10 @@ h2 a {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 65%;
+  width: 85%;
   max-width: 300px;
   background-color: #212121;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;

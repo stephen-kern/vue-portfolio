@@ -45,18 +45,24 @@ onUnmounted(() => {
         alt="stephen kern in the wild"
       />
 
-      <p>
-        I’m Stephen, a Front-End Developer who builds clean, user-friendly
-        websites that support business goals.
-        <br /><br />
-        At Enertech Global, I maintain and enhance WordPress and Joomla! sites,
-        develop custom PHP features, and create AJAX-powered solutions for
-        smooth user experiences.
-        <br /><br />
-        My experience spans front-end and full-stack technologies, and I’m
-        excited to continue growing into backend and full-stack roles where I
-        can take on new challenges.
-      </p>
+      <div>
+        <p>
+          I’m Stephen, a Front-End Developer who builds clean, user-friendly
+          websites that support business goals.
+          <br /><br />
+          At Enertech Global, I maintain and enhance WordPress and Joomla! sites,
+          develop custom PHP features, and create AJAX-powered solutions for
+          smooth user experiences.
+          <br /><br />
+          I’ve always been strongest on the front end, where I can bring designs
+          to life with clean and functional interfaces. I’ve also explored backend
+          technologies through a full-stack bootcamp, and I’m continuing to learn in
+          that area so I can grow into a more versatile and well-rounded
+          developer.
+        </p>
+        <button>Learn More</button>
+      </div>
+      
     </div>
   </section>
   <section>

@@ -117,7 +117,7 @@ onMounted(() => {
 .scroller[data-animated="true"] .scroller_inner {
   width: max-content;
   flex-wrap: nowrap;
-  animation: scroll 20s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .scroller_inner:hover {
