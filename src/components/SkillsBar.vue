@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 const icons = [
   {
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
@@ -46,53 +48,97 @@ const icons = [
   },
 ];
 
-const repeats = 2;
+onMounted(() => {
+  // Respect user's reduced motion preference
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-const repeatedIcons = Array.from({ length: repeats }, () => icons).flat();
+  const scroller = document.querySelector<HTMLElement>(".scroller");
+  const inner = scroller?.querySelector<HTMLElement>(".scroller_inner");
+  if (!scroller || !inner) return;
+
+  // Mark as animated for CSS
+  scroller.setAttribute("data-animated", "true");
+
+  // Clone each icon for seamless scrolling
+  const items = Array.from(inner.children);
+  items.forEach((item) => {
+    const clone = item.cloneNode(true) as HTMLElement;
+    clone.setAttribute("aria-hidden", "true");
+    inner.appendChild(clone);
+  });
+});
 </script>
 
 <template>
-  <div class="ticker">
-    <div class="ticker-track">
+  <div class="scroller" aria-label="Technologies I've worked with">
+    <div class="scroller_inner">
       <img
-        v-for="(icon, i) in repeatedIcons"
+        v-for="(icon, i) in icons"
         :key="i"
         :src="icon.src"
         :alt="icon.alt"
+        loading="lazy"
       />
     </div>
   </div>
 </template>
 
-<style scoped>
-.ticker {
-  overflow: hidden;
-  width: 90%;
+<style>
+.scroller {
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.ticker-track {
+.scroller_inner {
+  padding-block: 1rem;
   display: flex;
   gap: 2rem;
-  animation: scroll 10s linear infinite;
+  flex-wrap: wrap;
 }
 
-.ticker-track img {
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: lineear-gradient(
+    to right,
+    transparent,
+    white 10%,
+    white 90%,
+    transparent
+  );
+  mask: linear-gradient(
+    to right,
+    transparent,
+    white 10%,
+    white 90%,
+    transparent
+  );
+}
+
+.scroller[data-animated="true"] .scroller_inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+.scroller_inner:hover {
+  animation-play-state: paused;
+}
+
+.scroller_inner img {
   height: 80px;
   width: 80px;
   flex-shrink: 0;
   user-select: none;
+  transition: transform 0.2s ease;
 }
 
-.ticker-track img:hover {
+.scroller_inner img:hover {
   animation-play-state: paused;
-} 
+}
 
 @keyframes scroll {
-  from {
-    transform: translateX(0%); /* scroll by 1 set's width if 3 repeats */
-  } to {
-    transform: translateX(-33.333%); /* scroll by 1 set's width if 3 repeats */
+  to {
+    transform: translate(calc(-50% - 1rem));
   }
 }
 </style>
