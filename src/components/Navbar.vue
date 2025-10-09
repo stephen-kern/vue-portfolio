@@ -10,7 +10,7 @@ const toggleMenu = () => {
 <template>
   <div class="navbar-container">
     <div class="logo-section">
-      <img src="..\assets\summer24.JPG" alt="Stephen Kern" class="portrait" />
+      <img src="../assets/summer24.JPG" alt="Stephen Kern" class="portrait" />
       <h2><a href="/">Stephen Kern</a></h2>
     </div>
 
@@ -26,18 +26,16 @@ const toggleMenu = () => {
     </button>
 
     <!-- Desktop Navigation -->
-    <nav class="navbar desktop-nav">
+    <nav class="desktop-nav">
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/projects">Projects</router-link>
       <router-link to="/contact">Contact</router-link>
     </nav>
 
-    <div v-if="isOpen" class="backdrop" @click="toggleMenu"></div>
-
     <!-- Mobile Off-Canvas Navigation -->
     <transition name="slide">
-      <aside v-if="isOpen" class="navbar mobile-nav">
+      <aside v-if="isOpen" class="mobile-nav">
         <router-link to="/" @click="toggleMenu">Home</router-link>
         <router-link to="/about" @click="toggleMenu">About</router-link>
         <router-link to="/projects" @click="toggleMenu">Projects</router-link>
@@ -45,6 +43,7 @@ const toggleMenu = () => {
       </aside>
     </transition>
   </div>
+  <div v-if="isOpen" class="backdrop" @click="toggleMenu"></div>
 </template>
 
 <style scoped>
@@ -148,7 +147,7 @@ h2 a {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 900;
 }
@@ -157,9 +156,8 @@ h2 a {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
-  width: 85%;
-  max-width: 300px;
+  height: 100dvh;
+  width: min(80%, 300px);
   background-color: #212121;
   padding: 2rem 1.5rem;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
