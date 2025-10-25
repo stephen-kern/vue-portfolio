@@ -50,22 +50,19 @@ onUnmounted(() => {
           I’m Stephen, a Front-End Developer who builds clean, user-friendly
           websites that support business goals.
           <br /><br />
-          At Enertech Global, I maintain and enhance WordPress and Joomla! sites,
-          develop custom PHP features, and create AJAX-powered solutions for
-          smooth user experiences.
+          At Enertech Global, I maintain and enhance WordPress and Joomla!
+          sites, develop custom PHP features, and create AJAX-powered solutions
+          for smooth user experiences.
           <br /><br />
           I’ve always been strongest on the front end, where I can bring designs
-          to life with clean and functional interfaces. I’ve also explored backend
-          technologies through a full-stack bootcamp, and I’m continuing to learn in
-          that area so I can grow into a more versatile and well-rounded
-          developer.
+          to life with clean and functional interfaces. I’ve also explored
+          backend technologies through a full-stack bootcamp, and I’m continuing
+          to learn in that area so I can grow into a more versatile and
+          well-rounded developer.
         </p>
         <button>Learn More</button>
       </div>
-      
     </div>
-  </section>
-  <section>
     <SkillsBar />
   </section>
 </template>
@@ -89,7 +86,7 @@ onUnmounted(() => {
 
 .story-grid {
   height: 90vh;
-  padding: 2em;
+  padding: 2em 0;
   display: flex;
   justify-content: center;
   align-items: center;
