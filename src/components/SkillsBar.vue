@@ -85,7 +85,7 @@ onMounted(() => {
 
 <style>
 .scroller {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto 1rem;
 }
 
