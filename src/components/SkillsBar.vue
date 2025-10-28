@@ -85,8 +85,8 @@ onMounted(() => {
 
 <style>
 .scroller {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto 1rem;
 }
 
 .scroller_inner {
@@ -125,8 +125,8 @@ onMounted(() => {
 }
 
 .scroller_inner img {
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   flex-shrink: 0;
   user-select: none;
   transition: transform 0.2s ease;

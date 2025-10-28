@@ -60,7 +60,8 @@ onUnmounted(() => {
           to learn in that area so I can grow into a more versatile and
           well-rounded developer.
         </p>
-        <button>Learn More</button>
+        <br></br>
+        <router-link to="/about" class="primary-button">Learn More</router-link>
       </div>
     </div>
     <SkillsBar />
@@ -123,4 +124,6 @@ p {
   max-width: 500px;
   height: auto;
 }
+
+
 </style>

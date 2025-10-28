@@ -70,12 +70,12 @@ const toggleMenu = () => {
 }
 
 h2 a {
-  color: floralwhite;
+  color: white;
   font-size: 1.3rem;
 }
 
 .logo-section h2 a:hover {
-  color: steelblue;
+  color: var(--primary-hover);
 }
 
 /* Desktop Nav styles  */
@@ -87,7 +87,7 @@ h2 a {
 .desktop-nav a {
   font-size: 1.2rem;
   cursor: pointer;
-  color: floralwhite;
+  color: white;
   position: relative;
 }
 
@@ -99,7 +99,7 @@ h2 a {
   height: 5px;
   width: 0%;
   transition: width 0.3s ease;
-  background-color: cornflowerblue;
+  background-color: var(--primary);
 }
 
 .desktop-nav a:hover::after {
@@ -108,7 +108,7 @@ h2 a {
 
 .desktop-nav .router-link-exact-active::after {
   width: 100%;
-  background-color: steelblue;
+  background-color: var(--primary);
 }
 
 /* Hamburger Menu styles */
@@ -129,7 +129,7 @@ h2 a {
   display: block;
   height: 3px;
   width: 100%;
-  background: gray;
+  background: 393E41;
   border-radius: 3px;
   transition: all 0.4s ease;
 }
