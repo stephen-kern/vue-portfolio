@@ -10,7 +10,7 @@ const toggleMenu = () => {
 <template>
   <div class="navbar-container">
     <div class="logo-section">
-      <img src="../assets/summer24.JPG" alt="Stephen Kern" class="portrait" />
+      <a href="/"><img src="../assets/navbar-icon.webp" alt="Initials SK in favicon logo" class="logo" /></a>
       <h2><a href="/">Stephen Kern</a></h2>
     </div>
 
@@ -58,19 +58,22 @@ const toggleMenu = () => {
 .logo-section {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
+  margin: 0;
+  padding: 0;
 }
 
-.portrait {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+.logo {
+  width: 38px;
+  height: 38px;
   object-fit: cover;
   image-rendering: auto;
+  align-items: center;
 }
 
 h2 a {
-  color: white;
+  color: #fff;
   font-size: 1.3rem;
 }
 

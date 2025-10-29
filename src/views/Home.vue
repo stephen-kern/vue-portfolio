@@ -22,7 +22,11 @@ onUnmounted(() => {
 <template>
   <section class="cta">
     <h1>
-      <span style="font-size: 15px">Hello, I'm </span> <br />{{ name }} 👋
+      <span style="font-size: 15px">Hello, I'm </span> <br />{{ name }} <img
+        class="memoji"
+        src="../assets/nobg-memoji.webp"
+        alt="stephen animated memoji"
+      />
     </h1>
     <h2>Detail-driven development with real-world impact</h2>
 
@@ -80,6 +84,13 @@ onUnmounted(() => {
 }
 .cta h2 {
   font-size: 4rem;
+}
+
+.memoji {
+  width: 80px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 1em;
 }
 
 .story-grid {
