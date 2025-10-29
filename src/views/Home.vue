@@ -21,21 +21,19 @@ onUnmounted(() => {
 
 <template>
   <section class="cta">
-    <h1>
-      <span style="font-size: 15px">Hello, I'm </span> <br />{{ name }} <img
-        class="memoji"
-        src="../assets/nobg-memoji.webp"
-        alt="stephen animated memoji"
-      />
-    </h1>
+    <h1><span style="font-size: 15px">Hello, I'm </span> <br />{{ name }}</h1>
+
     <h2>Detail-driven development with real-world impact</h2>
 
-    <div class="cta-space" :style="{
-          opacity: Math.max(1 - scrollY / 550, 0), // Fade out as you scroll down
-          transition: 'opacity 0.3s ease',
-        }">
+    <div
+      class="cta-space"
+      :style="{
+        opacity: Math.max(1 - scrollY / 550, 0), // Fade out as you scroll down
+        transition: 'opacity 0.3s ease',
+      }"
+    >
       <h4>Check out what's down here!</h4>
-      <ChevronsDown class="chevrons" :size="72"/>
+      <ChevronsDown class="chevrons" :size="72" />
     </div>
   </section>
   <section class="story-section">
@@ -48,8 +46,8 @@ onUnmounted(() => {
 
       <div>
         <p>
-          I’m a Front-End Developer who builds clean, user-friendly
-          websites that support business goals, and I love getting outside to recharge.
+          I’m a Front-End Developer who builds clean, user-friendly websites
+          that support business goals, and I love getting outside to recharge.
           <br /><br />
           At Enertech Global, I maintain and enhance WordPress and Joomla!
           sites, develop custom PHP features, and create AJAX-powered solutions
@@ -61,7 +59,7 @@ onUnmounted(() => {
           to learn in that area so I can grow into a more versatile and
           well-rounded developer.
         </p>
-        <br></br>
+        <br /><br />
         <router-link to="/about" class="primary-button">Learn More</router-link>
       </div>
     </div>
@@ -84,13 +82,6 @@ onUnmounted(() => {
 }
 .cta h2 {
   font-size: 4rem;
-}
-
-.memoji {
-  width: 80px;
-  height: auto;
-  vertical-align: middle;
-  margin-left: 1em;
 }
 
 .story-grid {
@@ -132,6 +123,4 @@ p {
   max-width: 500px;
   height: auto;
 }
-
-
 </style>

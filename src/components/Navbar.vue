@@ -9,10 +9,13 @@ const toggleMenu = () => {
 
 <template>
   <div class="navbar-container">
-    <div class="logo-section">
-      <a href="/"><img src="../assets/navbar-icon.webp" alt="Initials SK in favicon logo" class="logo" /></a>
-      <h2><a href="/">Stephen Kern</a></h2>
-    </div>
+    <a href="/" class="logo-link">
+      <img
+        src="../assets/navbar-icon.webp"
+        alt="Initials SK in favicon logo"
+        class="logo"
+      />
+    </a>
 
     <!-- Hamburger Menu -->
     <button
@@ -53,15 +56,6 @@ const toggleMenu = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
 }
 
 .logo {
@@ -132,7 +126,7 @@ h2 a {
   display: block;
   height: 3px;
   width: 100%;
-  background: 393E41;
+  background: #fff;
   border-radius: 3px;
   transition: all 0.4s ease;
 }
