@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import memoji from "../assets/nobg-memoji.webp";
+import fsme from "../assets/fsme.webp";
+import bike from "../assets/me-on-bike-nobg.webp";
+
 interface Section {
   id: number;
   text: string;
@@ -9,21 +13,21 @@ interface Section {
 const sections: Section[] = [
   {
     id: 1,
-    text: "I’m a front-end developer who enjoys building clean, easy-to-use websites. I currently work at Enertech Global, where I maintain and improve WordPress and Joomla! sites, create custom PHP features, and focus on improving site performance and security.",
-    imageUrl: "../assets/summer24.JPG",
-    imageAlt: "A photo of Stephen Kern",
+    text: "I love building websites that look great and feel easy to use. Clean design and attention to detail are what keep me excited about the web! I’m always trying to write code that’s clearer and more thoughtful. At Enertech Global, I maintain and enhance our WordPress and Joomla! sites, develop custom PHP features, and keep things running fast and secure.",
+    imageUrl: memoji,
+    imageAlt: "Emoji of Stephen waving.",
   },
   {
     id: 2,
     text: "I’ve worked with React, Node.js, SQL, and other full-stack technologies. I enjoy projects where I can see my impact right away, but I'm also intrigued by the logic that the backend offers. I’m looking forward to expanding my skills in backend development so I can contribute to more of the process from start to finish.",
-    imageUrl: "../assets/stephen-kern.jpg",
-    imageAlt: "An illustration of front-end and back-end development concepts.",
+    imageUrl: fsme,
+    imageAlt: "An illustration of Stephen working on a laptop.",
   },
   {
     id: 3,
     text: "Outside of coding, I spend my time with friends and family, exploring new music and art, biking, skateboarding, gaming, and planning my next travel adventure.",
-    imageUrl: "../assets/stephen-kern.jpg",
-    imageAlt: "An illustration of a man on a bicycle.",
+    imageUrl: bike,
+    imageAlt: "An illustration of Stephen on a bicycle.",
   },
 ];
 </script>
@@ -47,33 +51,39 @@ const sections: Section[] = [
 </template>
 
 <style scoped>
-  .about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    padding: 2rem;
-  }
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2rem;
+}
 
-  .about{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  .about.reverse {
-    flex-direction: row-reverse;
-  }
-  .about-text {
-    flex: 1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-  }
-  .about-image {
-    flex: 1;
-  }
-  .about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-  }
+.about {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.about.reverse {
+  flex-direction: row-reverse;
+}
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+}
 </style>
