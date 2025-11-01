@@ -13,19 +13,19 @@ interface Section {
 const sections: Section[] = [
   {
     id: 1,
-    text: "I love building websites that look great and feel easy to use. Clean design and attention to detail are what keep me excited about the web! I’m always trying to write code that’s clearer and more thoughtful. At Enertech Global, I maintain and enhance our WordPress and Joomla! sites, develop custom PHP features, and keep things running fast and secure.",
+    text: "I love building websites that look great and feel easy to use. Clean design and attention to detail are what keep me excited about the web! I’m always trying to write code that’s clearer and more thoughtful than the last. Right now I work at Enertech Global and I maintain and enhance our WordPress and Joomla! sites, develop custom features, and keep things running fast and secure.",
     imageUrl: memoji,
     imageAlt: "Emoji of Stephen waving.",
   },
   {
     id: 2,
-    text: "I’ve worked with React, Node.js, SQL, and other full-stack technologies. I enjoy projects where I can see my impact right away, but I'm also intrigued by the logic that the backend offers. I’m looking forward to expanding my skills in backend development so I can contribute to more of the process from start to finish.",
+    text: "I love building websites that are clean, easy to navigate, and enjoyable to use. Most of my day-to-day work involves CMS theme builders, but I also create custom solutions with HTML, CSS, JS, and PHP when needed. I like keeping my code organized and efficient, and often consider ways to make it even better. While I’ve mostly worked with WordPress backend setups, I’m excited to continue growing my skills in backend development and working with data.",
     imageUrl: fsme,
     imageAlt: "An illustration of Stephen working on a laptop.",
   },
   {
     id: 3,
-    text: "Outside of coding, I spend my time with friends and family, exploring new music and art, biking, skateboarding, gaming, and planning my next travel adventure.",
+    text: "Outside of work, I enjoy a mix of activities that keep me energized. You might find me spending time with friends and family, planning my next adventure, exploring new music and art, skateboarding, gaming, or riding my bike!",
     imageUrl: bike,
     imageAlt: "An illustration of Stephen on a bicycle.",
   },
@@ -34,11 +34,12 @@ const sections: Section[] = [
 
 <template>
   <section class="about-container">
+    <h2>More About Me</h2>
     <div
       v-for="(section, index) in sections"
       :key="section.id"
       class="about"
-      :class="{ reverse: index % 2 !== 0 }"
+      :class="[{ reverse: index % 2 !== 0 }, { 'img-large': index === 1}]"
     >
       <div class="about-text">
         <p>{{ section.text }}</p>
@@ -54,8 +55,8 @@ const sections: Section[] = [
 .about-container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  padding: 2rem;
+  gap: 2rem;
+  padding: 0;
 }
 
 .about {
@@ -68,7 +69,8 @@ const sections: Section[] = [
 }
 .about-text {
   flex: 1;
-  font-size: 1.1rem;
+  text-align: left;
+  font-size: 1.3rem;
   line-height: 1.6;
 }
 .about-image {
@@ -80,10 +82,14 @@ const sections: Section[] = [
 
 .about-image img {
   width: 100%;
-  max-width: 380px;
+  max-width: 350px;
   height: auto;
   border-radius: 12px;
   object-fit: contain;
   display: block;
+}
+
+.img-large img {
+  max-width: 450px;
 }
 </style>
