@@ -20,16 +20,17 @@ html,
 body,
 #app {
   height: 100%;
-  margin: 0;
+  margin: 0 auto;
+  padding: 0;
 }
 
 #app {
+  min-height: 100dvh;
   min-height: 100vh;
   max-width: 1280px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  
 }
 
 header,
@@ -50,6 +51,10 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+img,
+picture {
+  max-width: 100%;
+}
 
 .primary-button {
   display: inline-block;
@@ -62,6 +67,7 @@ h1 {
 }
 .primary-button:hover {
   background-color: var(--primary-hover);
+  cursor: pointer;
 }
 
 .card {

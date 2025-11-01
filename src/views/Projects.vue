@@ -60,14 +60,11 @@ const projectsData: Project[] = [
 </template>
 
 <style scoped>
-.grid-container {
-  display: grid;
-  margin: 3rem auto;
-  max-width: 70%;
-}
+
 
 .columns {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  justify-content: center;
 }
 </style>
