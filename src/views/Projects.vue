@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Card from "../components/ProjectCard.vue";
-import jwp from '../assets/Jake-Wilson-Art.png';
-import workcard from "../assets/programming.jpg";
-import advgen from "../assets/advice-genie.png";
+import jwp from '../assets/Jake-Wilson-Art.webp';
+import workcard from "../assets/programming.webp";
+import advgen from "../assets/advice-genie.webp";
 
 interface Project {
   id: number;
@@ -19,6 +19,7 @@ const projectsData: Project[] = [
     title: "Professional Projects",
     description:
       "Professional WordPress & web development projects available upon request. Check out my resume for more information.",
+    liveLink: "/contact",
     img: workcard
   },
   {
@@ -43,7 +44,7 @@ const projectsData: Project[] = [
 </script>
 
 <template>
-  <section id="projects-section" class="grid-container">
+  <section class="grid-container">
     <h2 class="section-title">Projects</h2>
     <div class="columns">
       <Card

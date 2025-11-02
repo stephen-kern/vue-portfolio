@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -13,18 +12,23 @@ const props = defineProps<ProjectCardProps>();
 
 <template>
   <div class="card">
-    <div class="img-container">
-      <img
-        v-if="props.img"
-        :src="props.img"
-        :alt="props.title + ' project screenshot'"
-        class="card__img"
-      />
-    </div>
+    <img
+      v-if="props.img"
+      :src="props.img"
+      :alt="props.title + ' project screenshot'"
+      class="card__img"
+    />
+
     <div class="card-info">
       <h3 class="card-title">{{ props.title }}</h3>
       <p class="card-description">{{ props.description }}</p>
       <div class="card-buttons">
+        <button v-if="props.liveLink" class="primary-button">
+          <a :href="props.liveLink" target="_blank" rel="noopener noreferer"
+            >Learn More</a
+          >
+        </button>
+
         <button v-if="props.ghLink" class="primary-button">
           <a :href="props.ghLink" target="_blank" rel="noopener noreferer"
             >GitHub Link</a
@@ -41,15 +45,11 @@ const props = defineProps<ProjectCardProps>();
   background: white;
   padding: 0;
   min-width: 400px;
-}
-.img-container {
-
-  border-radius: 0.2rem 0.2rem 0 0;
+  width: 100%;
 }
 
 .card__img {
   max-width: 100%;
-  height: 300px;
   object-fit: cover;
 }
 
@@ -61,7 +61,7 @@ const props = defineProps<ProjectCardProps>();
 .card-title {
   margin: 0.5rem 0;
   font-size: 1.25rem;
-  color:#555
+  color: #555;
 }
 .card-description {
   font-size: 1rem;
