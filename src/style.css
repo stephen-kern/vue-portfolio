@@ -24,6 +24,11 @@ body,
   padding: 0;
 }
 
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
 #app {
   min-height: 100dvh;
   min-height: 100vh;
