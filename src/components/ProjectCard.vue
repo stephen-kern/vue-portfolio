@@ -16,7 +16,7 @@ const props = defineProps<ProjectCardProps>();
       v-if="props.img"
       :src="props.img"
       :alt="props.title + ' project screenshot'"
-      class="card__img"
+      class="card-image"
     />
 
     <div class="card-info">
@@ -41,20 +41,21 @@ const props = defineProps<ProjectCardProps>();
 
 <style scoped>
 .card {
-  border-radius: 0.2rem;
+  border-radius: 2rem 2rem 1rem 1rem;
   background: white;
   padding: 0;
   min-width: 400px;
   width: 100%;
 }
 
-.card__img {
+.card-image {
   max-width: 100%;
   object-fit: cover;
+  border-radius: 1rem 1rem 0 0
 }
 
 .card-info {
-  padding: 1rem;
+  padding: 1rem 2rem 1.5rem;
   text-align: center;
 }
 
@@ -70,7 +71,7 @@ const props = defineProps<ProjectCardProps>();
 .card-buttons {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2.5rem;
   margin-top: 1rem;
 }
 button {
