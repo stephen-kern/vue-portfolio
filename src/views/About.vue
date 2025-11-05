@@ -19,7 +19,7 @@ const sections: Section[] = [
   },
   {
     id: 2,
-    text: "I love building websites that are clean, easy to navigate, and enjoyable to use. Most of my day-to-day work involves CMS theme builders, but I also create custom solutions with HTML, CSS, JS, and PHP when needed. I like keeping my code organized and efficient, and often consider ways to make it even better. While I’ve mostly worked with WordPress backend setups, I’m excited to continue growing my skills in backend development and working with data.",
+    text: "Most of my day-to-day work involves CMS theme builders, but I also create custom solutions with HTML, CSS, JS, and PHP when needed. I like keeping my code organized and efficient, and often consider ways to make it even better. While I’ve mostly worked with WordPress backend setups, I’m excited to continue growing my skills in backend development and working with data.",
     imageUrl: fsme,
     imageAlt: "An illustration of Stephen working on a laptop.",
   },
@@ -39,14 +39,21 @@ const sections: Section[] = [
       v-for="(section, index) in sections"
       :key="section.id"
       class="about"
-      :class="[{ reverse: index % 2 !== 0 }, { 'img-large': index === 1}]"
+      :class="[{ reverse: index % 2 !== 0 }, { 'img-large': index === 1 }, { 'img-small': index === 2 }]"
     >
       <div class="about-text">
         <p>{{ section.text }}</p>
       </div>
-      <div class="about-image">
-        <img :src="section.imageUrl" :alt="section.imageAlt" />
-      </div>
+
+      <img
+        :src="section.imageUrl"
+        :alt="section.imageAlt"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+        width="350"
+        height="350"
+      />
     </div>
   </section>
 </template>
@@ -55,14 +62,19 @@ const sections: Section[] = [
 .about-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 0;
+  gap: 3rem;
+  padding: 1rem 2rem;
+}
+
+.about-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .about {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 .about.reverse {
   flex-direction: row-reverse;
@@ -73,14 +85,8 @@ const sections: Section[] = [
   font-size: 1.3rem;
   line-height: 1.6;
 }
-.about-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.about-image img {
+img {
   width: 100%;
   max-width: 350px;
   height: auto;
@@ -89,7 +95,34 @@ const sections: Section[] = [
   display: block;
 }
 
+
 .img-large img {
   max-width: 450px;
+}
+
+@media (max-width: 768px) {
+  .about-container h2 {
+    text-align: center;
+  }
+  .about {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .about.reverse {
+    flex-direction: column-reverse;
+  }
+  .about-text {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  img {
+    max-width: 280px;
+  }
+  .img-large img {
+    max-width: 350px;
+  }
+  .img-small img {
+    max-width: 250px;
+  }
 }
 </style>
