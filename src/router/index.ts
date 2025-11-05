@@ -9,8 +9,8 @@ import Contact from "../views/Contact.vue";
 const routes: Array<RouteRecordRaw> = [
   { path: "/", name: "Home", component: Home },
   { path: "/about", name: "About", component: About },
-  { path: "/projects", name: Projects, component: Projects },
-  { path: "/contact", name: Contact, component: Contact },
+  { path: "/projects", name: "Projects", component: Projects },
+  { path: "/contact", name: "Contact", component: Contact },
 ];
 
 const router = createRouter({
@@ -18,4 +18,4 @@ const router = createRouter({
   routes,
 });
 
-export default router
+export default router;
