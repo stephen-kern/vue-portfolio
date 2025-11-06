@@ -85,7 +85,7 @@ onUnmounted(() => {
 }
 
 .story-grid {
-  height: 90vh;
+  height: 85vh;
   padding: 2em 0;
   display: flex;
   justify-content: center;

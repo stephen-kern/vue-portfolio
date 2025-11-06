@@ -35,7 +35,6 @@ footer {
   padding: 1.5rem 0;
   min-height: 3rem;
   color: white;
-  border-top: 1px dashed lime;
 }
 
 .footer-social-container {
@@ -47,5 +46,9 @@ footer {
 
 .footer-social-container a {
   color: white;
+}
+
+.footer-social-container a:hover {
+  color: var(--primary-hover);
 }
 </style>
