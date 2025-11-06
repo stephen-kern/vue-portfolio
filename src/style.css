@@ -82,6 +82,9 @@ picture {
 a {
   text-decoration: none;
 }
+a svg, a img {
+  vertical-align: middle;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

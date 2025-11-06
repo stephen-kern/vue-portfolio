@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
 </script>
 
@@ -11,9 +12,7 @@ import Navbar from "./components/Navbar.vue";
     <router-view />
   </main>
 
-  <footer>
-    <p>© 2025 Stephen Kern</p>
-  </footer>
+  <Footer />
 </template>
 
 <style scoped>
