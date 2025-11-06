@@ -44,7 +44,8 @@ const props = defineProps<ProjectCardProps>();
   border-radius: 2rem 2rem 1rem 1rem;
   background: white;
   padding: 0;
-  min-width: 400px;
+  min-width: 300px;
+  max-width: 400px;
   width: 100%;
 }
 
