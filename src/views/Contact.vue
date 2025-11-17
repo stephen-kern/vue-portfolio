@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import resumepdf from "../assets/SK25.pdf";
 import {
   Github,
   Linkedin,
@@ -6,10 +7,12 @@ import {
   Pin,
   Handshake,
   MessageCircleCode,
+  FileUser
 } from "lucide-vue-next";
 const linkedin: string = "https://linkedin.com/in/stephenkern96";
 const github: string = "https://github.com/stephen-kern";
 const email: string = "stephenkern96@gmail.com";
+
 </script>
 
 <template>
@@ -24,29 +27,36 @@ const email: string = "stephenkern96@gmail.com";
         >I usually reply within a day or two.. feel free to say hello!</span
       >
     </p>
+  </section>
+
+  <section>
     <h2>Where You Can Find Me</h2>
     <div class="contact-links">
       <a class="contact-card" :href="github" target="_blank">
         <Github class="icon" />
         <span>GitHub Profile</span>
       </a>
-
       <a class="contact-card" :href="linkedin" target="_blank">
         <Linkedin class="icon" />
         <span>LinkedIn</span>
       </a>
-
       <a class="contact-card" :href="`mailto:${email}`">
         <Mail class="icon" />
         <span>Email</span>
       </a>
-
-      <ul class="contact-list">
-        <li><Pin class="pin" />Open to web development opportunities</li>
-        <li><Handshake class="handshake"/> for collaboration or side projects</li>
-        <li><MessageCircleCode class="message"/> to answer questions about my work</li>
-      </ul>
+      <a :href="resumepdf" class="contact-card" target="_blank">
+        <FileUser class="icon"/>
+        <span>Resume</span>
+      </a>
     </div>
+  </section>
+
+  <section>
+    <ul class="contact-list">
+        <li><span><Pin class="pin" :size="48" /></span>Open to web development opportunities</li>
+        <li><span><Handshake class="handshake" :size="48"/> </span>Available for collaborations or side projects</li>
+        <li><span><MessageCircleCode class="message" :size="48"/></span>Happy to answer questions about my work</li>
+      </ul>
   </section>
 </template>
 <style scoped>
@@ -80,12 +90,12 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  background: #f8f8f8;
+  background: #FFF5E3;
   padding: 1.5rem;
   border-radius: 16px;
   width: 140px;
   text-decoration: none;
-  color: inherit;
+  color: var(--primary);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -100,14 +110,19 @@ h2 {
 }
 
 .contact-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.3rem;
   list-style: none;
   padding: 0;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
 .contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   margin: 0.5rem 0;
   font-size: 1.1rem;
 }
@@ -117,5 +132,15 @@ h2 {
   margin-top: 2.5rem;
   font-style: italic;
   color: #555;
+}
+
+.pin{
+  color: #8c001a;
+}
+.handshake{
+  color: #F9DC5C;
+}
+.message{
+  color: #E6DDC5;
 }
 </style>

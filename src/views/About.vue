@@ -67,7 +67,6 @@ const sections: Section[] = [
 }
 
 .about-container h2 {
-  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
