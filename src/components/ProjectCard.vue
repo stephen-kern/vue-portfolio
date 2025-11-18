@@ -33,7 +33,7 @@ const props = defineProps<ProjectCardProps>();
 
         <button v-if="props.ghLink" class="primary-button">
           <a :href="props.ghLink" target="_blank" rel="noopener noreferer"
-            >GitHub Link</a
+            >GitHub Repo</a
           >
         </button>
       </div>
