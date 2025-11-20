@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const name: string = "Stephen Kern";
+const name: string = "Stephen";
 import SkillsBar from "../components/SkillsBar.vue";
 import { ChevronsDown } from "lucide-vue-next";
 import { ref, onMounted, onUnmounted } from "vue";
@@ -20,6 +20,38 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1>
+          <span style="font-size: 15px">Hello, I'm </span> <br />{{ name }}
+        </h1>
+
+        <h2>Detail-driven development with real-world impact</h2>
+
+        <p>
+          I'm a Front-End Developer who builds clean, user-friendly websites
+          that support business goals. At Enertech Global, I develop custom
+          WordPress and PHP soluutions to create smooth, responsive user
+          experiences.
+        </p>
+
+        <div>
+          <router-link to="/projects" class="primary-button"
+            >View Projects</router-link
+          >
+          <router-link to="/about" class="primary-button">About Me</router-link>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img
+          class="pfp"
+          src="../assets/blob-pic.png"
+          alt="stephen kern in the wild"
+        />
+      </div>
+    </div>
+  </section>
   <section class="cta">
     <h1><span style="font-size: 15px">Hello, I'm </span> <br />{{ name }}</h1>
 
@@ -68,6 +100,16 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.hero__inner {
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
 .cta {
   display: flex;
   flex-direction: column;
@@ -119,8 +161,14 @@ p {
 }
 
 .pfp {
-  border-radius: 50%;
   max-width: 500px;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 </style>
