@@ -53,8 +53,9 @@ body {
 }
 
 h1 {
-  font-size: 2.8em;
-  line-height: 1;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
 h2{
   font-size: 2rem;
@@ -62,6 +63,14 @@ h2{
 img,
 picture {
   max-width: 100%;
+}
+
+button {
+  border: none;
+}
+button a {
+  color: white;
+  text-decoration: none;
 }
 
 .primary-button {
@@ -75,7 +84,22 @@ picture {
 }
 .primary-button:hover {
   background-color: var(--primary-hover);
-  cursor: pointer;
+}
+
+.secondary-button{
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: #FFFFF0;
+  color: var(--primary);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.secondary-button:hover{
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+  transition: ease;
 }
 
 .card {
