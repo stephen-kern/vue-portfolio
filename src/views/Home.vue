@@ -67,8 +67,6 @@ onUnmounted(() => {
   gap: 4rem;
 }
 
-
-
 .hero__content{
   flex: 0 0 60%;
 }
@@ -104,7 +102,15 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .hero__inner {
     flex-direction: column;
-    text-align: left;
+    text-align: center;
+  }
+
+  .hero__content{
+    flex: none;
+  }
+
+  .hero-buttons{
+    justify-content: center;
   }
 }
 </style>
