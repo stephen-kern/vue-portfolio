@@ -68,13 +68,14 @@ onUnmounted(() => {
 }
 
 .hero__content{
-  flex: 0 0 60%;
+  flex: 1 1 60%;
 }
 
 .intro-label{
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
   opacity: 0.9;
   line-height: 1;
+  font-family: var(--font-body);
 }
 
 .hero-buttons {
@@ -86,16 +87,17 @@ onUnmounted(() => {
 .cta{
   font-size: 1.3rem;
   line-height: 1.5;
+  font-family: var(--font-body);
 }
 
 .hero__image{
-  flex: 0 0 40%;
+  flex: 1 1 40%;
   display: flex;
   justify-content: center;
 }
 
 .pfp {
-  max-width: 500px;
+  max-width: clamp(200px, 40vw, 100%);
   height: auto;
 }
 
@@ -103,6 +105,7 @@ onUnmounted(() => {
   .hero__inner {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 
   .hero__content{
