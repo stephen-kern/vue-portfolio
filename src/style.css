@@ -3,8 +3,8 @@
 ============================== */
 :root {
   /* Fonts */
-  --font-heading: 'Manrope', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
 
   /* Base font settings */
   font-family: var(--font-body);
@@ -13,14 +13,14 @@
 
   /* Colors */
   --text: #222222;
-  --background: #FAF7F1;
-  --primary: #2D8E77;        /* forest green accent */
-  --primary-hover: #25695F;
-  --accent: #CC6E4A;         /* warm terracotta highlight */
-  --hover: #B55B3D;
+  --background: #faf7f1;
+  --primary: #2d8e77; /* forest green accent */
+  --primary-hover: #25695f;
+  --accent: #cc6e4a; /* warm terracotta highlight */
+  --hover: #b55b3d;
 
-  --secondary: #76738B;      /* subtle gray for text/UI */
-  --divider: #E4E6EA;        /* light neutral divider lines */
+  --secondary: #76738b; /* subtle gray for text/UI */
+  --divider: #e4e6ea; /* light neutral divider lines */
   --background-dark: #242424;
 
   /* Font smoothing */
@@ -33,13 +33,16 @@
 /* ==============================
    GLOBAL RESET
 ============================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -56,13 +59,14 @@ body {
   min-height: 100dvh;
   min-height: 100vh; /* fallback */
   max-width: 1280px;
-  margin: 0 auto;      /* horizontal centering */
-  padding: 0 1.5rem;   /* responsive padding for small screens */
+  margin: 0 auto; /* horizontal centering */
+  padding: 0 1.5rem; /* responsive padding for small screens */
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 
-header, footer {
+header,
+footer {
   flex: 0 0 auto;
 }
 
@@ -73,7 +77,9 @@ main {
 /* ==============================
    HEADINGS
 ============================== */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-heading);
   font-weight: 600;
   margin-bottom: 1rem;
@@ -92,7 +98,8 @@ h2 {
 /* ==============================
    IMAGES & MEDIA
 ============================== */
-img, picture {
+img,
+picture {
   max-width: 100%;
   display: block;
 }
@@ -105,7 +112,8 @@ a {
   color: inherit;
 }
 
-a svg, a img {
+a svg,
+a img {
   vertical-align: middle;
 }
 
@@ -119,16 +127,19 @@ button,
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-family: var(--font-body);
+  font-weight: 500;
+  border: none;
 }
 
 .primary-button,
 button.primary-button {
   background-color: var(--primary);
-  color: white;
-  border: none;
+  color: var(--divider);
 }
 
 .primary-button:hover,
@@ -138,16 +149,19 @@ button.primary-button:hover {
 
 .secondary-button,
 button.secondary-button {
-  background-color: #FFFFF0;
-  color: var(--primary);
-  border: none;
-}
-
-.secondary-button:hover,
-button.secondary-button:hover {
+  background-color: transparent;
+  color: var(--divider);
   outline: 2px solid var(--primary);
   outline-offset: -2px;
 }
+
+.secondary-button:hover,
+button.secondary-button:hover{
+  background-color: var(--divider);
+  color: var(--primary);
+  outline: none;
+}
+
 
 /* ==============================
    CARDS / COMMON COMPONENTS
@@ -159,18 +173,14 @@ button.secondary-button:hover {
 /* ==============================
    COLOR-SCHEME SUPPORT
 ============================== */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --text: #213547;
-    --background: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
+    --background: #0f0f10;
+    --text: #e6e6e6;
+    --primary: #0d59ab;
+    --primary-hover: #2a75c4;
+    --accent: #2d8e77;
+    --hover: #cc6e4a;
   }
 }
 
