@@ -39,10 +39,31 @@ const toggleMenu = () => {
     <!-- Mobile Off-Canvas Navigation -->
     <transition name="slide">
       <aside v-if="isOpen" class="mobile-nav">
-        <router-link to="/" @click="toggleMenu">Home</router-link>
-        <router-link to="/projects" @click="toggleMenu">Projects</router-link>
-        <router-link to="/about" @click="toggleMenu">About</router-link>
-        <router-link to="/contact" @click="toggleMenu">Contact</router-link>
+        <div class="nav-links">
+          <router-link to="/" @click="toggleMenu">Home</router-link>
+          <router-link to="/projects" @click="toggleMenu">Projects</router-link>
+          <router-link to="/about" @click="toggleMenu">About</router-link>
+          <router-link to="/contact" @click="toggleMenu">Contact</router-link>
+        </div>
+        <div class="divider"></div>
+        <div class="social-links">
+          
+          <a
+            href="https://github.com/stephenkern"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+          <a
+            href="https://www.linkedin.com/in/stephenkern96/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a href="mailto:stephenkern96@gmail.com">Email</a>
+        </div>
       </aside>
     </transition>
   </div>
@@ -144,7 +165,7 @@ h2 a {
   left: 0;
   width: 100vw;
   height: 100dvh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 900;
 }
 
@@ -153,19 +174,55 @@ h2 a {
   top: 0;
   right: 0;
   height: 100dvh;
+  height: 100vh;
   width: min(80%, 300px);
   background-color: #212121;
   padding: 2rem 1.5rem;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: space-between;
   z-index: 1000;
+  border-left: 2px solid var(--primary);
 }
 
-.mobile-nav a {
-  color: floralwhite;
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 auto 0;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
   font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mobile-nav .nav-links a:active,
+.mobile-nav .nav-links a:focus-visible {
+  color: var(--primary);
+  transform: scale(0.98); /* subtle press effect */
+}
+
+.mobile-nav .divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider);
+  margin: 2rem 0;
+}
+
+/* Social links container */
+.mobile-nav .social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav .social-links a {
+  font-size: 1.25rem;
+  color: #ffffff;
+  transition: color 0.25s ease, transform 0.2s ease;
 }
 
 /* Slide animation */
