@@ -51,8 +51,7 @@ const toggleMenu = () => {
 
 <style scoped>
 .navbar-container {
-  padding: 1rem 2rem;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -85,7 +85,7 @@ onUnmounted(() => {
 }
 
 .cta{
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 5vw, 1.3rem);
   line-height: 1.5;
   font-family: var(--font-body);
 }
@@ -97,15 +97,16 @@ onUnmounted(() => {
 }
 
 .pfp {
-  max-width: clamp(200px, 40vw, 100%);
+  max-width: clamp(300px, 40vw, 100%);
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .hero__inner {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+    padding: 2rem 0.5rem;
   }
 
   .hero__content{
