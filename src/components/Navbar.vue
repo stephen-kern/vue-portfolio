@@ -4,6 +4,7 @@ import { ref } from "vue";
 const isOpen = ref(false);
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
+  document.body.classList.toggle("no-scroll", isOpen.value);
 };
 </script>
 
@@ -47,9 +48,8 @@ const toggleMenu = () => {
         </div>
         <div class="divider"></div>
         <div class="social-links">
-          
           <a
-            href="https://github.com/stephenkern"
+            href="https://github.com/stephen-kern"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -167,12 +167,14 @@ h2 a {
   height: 100dvh;
   background: rgba(0, 0, 0, 0.8);
   z-index: 900;
+  overflow: hidden;
 }
 
 .mobile-nav {
   position: fixed;
   top: 0;
   right: 0;
+  overflow: hidden;
   height: 100dvh;
   height: 100vh;
   width: min(80%, 300px);
@@ -185,6 +187,7 @@ h2 a {
   z-index: 1000;
   border-left: 2px solid var(--primary);
 }
+
 
 .nav-links {
   display: flex;
@@ -200,7 +203,9 @@ h2 a {
 }
 
 .mobile-nav .nav-links a:active,
-.mobile-nav .nav-links a:focus-visible {
+.mobile-nav .nav-links a:focus-visible,
+.social-links a:active,
+.social-links a:focus-visible {
   color: var(--primary);
   transform: scale(0.98); /* subtle press effect */
 }
