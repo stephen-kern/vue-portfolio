@@ -19,8 +19,8 @@ const props = defineProps<ProjectCardProps>();
       class="card-image"
     />
 
-    <div class="card-info">
-      <div>
+    <div class="card-content">
+      <div class="card-info">
         <h3 class="card-title">{{ props.title }}</h3>
         <p class="card-description">{{ props.description }}</p>
       </div>
@@ -44,7 +44,7 @@ const props = defineProps<ProjectCardProps>();
 <style scoped>
 .card {
   border-radius: 2rem 2rem 1rem 1rem;
-  background: white;
+  background: var(--divider);
   padding: 0;
   min-width: 300px;
   max-width: 400px;
@@ -57,7 +57,7 @@ const props = defineProps<ProjectCardProps>();
   border-radius: 1rem 1rem 0 0;
 }
 
-.card-info {
+.card-content {
   padding: 1rem 2rem 1.5rem;
   text-align: center;
   display: flex;
@@ -73,6 +73,7 @@ const props = defineProps<ProjectCardProps>();
 .card-description {
   font-size: 1rem;
   color: #555;
+  flex: 1;
 }
 .card-buttons {
   display: flex;

@@ -29,7 +29,7 @@ footer {
   justify-content: center;
   padding: 1.5rem 0;
   min-height: 3rem;
-  color: white;
+  color: var(--text);
 }
 
 .footer-social-container {
@@ -40,10 +40,10 @@ footer {
 }
 
 .footer-social-container a {
-  color: white;
+  color: var(--text);
 }
 
 .footer-social-container a:hover {
-  color: var(--primary-hover);
+  color: var(--accent);
 }
 </style>
