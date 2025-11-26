@@ -47,7 +47,7 @@ onUnmounted(() => {
       <div class="hero__image">
         <img
           class="pfp"
-          src="../assets/blob-pic.png"
+          src="../assets/bgblobpic.png"
           alt="stephen kern in the wild"
         />
       </div>

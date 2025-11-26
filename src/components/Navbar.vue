@@ -2,72 +2,97 @@
 import { ref } from "vue";
 
 const isOpen = ref(false);
+
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
   document.body.classList.toggle("no-scroll", isOpen.value);
 };
+
+const navLinks = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/projects" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/stephen-kern" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/stephenkern96/" },
+  { label: "Email", href: "mailto:stephenkern96@gmail.com" },
+];
 </script>
 
 <template>
-  <div class="navbar-container">
-    <a href="/" class="logo-link">
+  <header class="navbar-container">
+    <RouterLink to="/" class="logo-link" aria-label="Go to home">
       <img
         src="../assets/navbar-icon.webp"
         alt="Initials SK in favicon logo"
         class="logo"
       />
-    </a>
+    </RouterLink>
 
-    <!-- Hamburger Menu -->
+    <!-- Hamburger Button -->
     <button
       class="hamburger"
       @click="toggleMenu"
-      aria-label="Toggle Menu"
+      aria-label="Menu"
+      :aria-expanded="isOpen"
       :class="{ open: isOpen }"
     >
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
-    <!-- Desktop Navigation -->
+    <!-- Desktop Nav -->
     <nav class="desktop-nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/projects">Projects</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
+      <RouterLink
+        v-for="item in navLinks"
+        :key="item.to"
+        :to="item.to"
+      >
+        {{ item.label }}
+      </RouterLink>
     </nav>
 
-    <!-- Mobile Off-Canvas Navigation -->
+    <!-- Mobile Menu -->
     <transition name="slide">
       <aside v-if="isOpen" class="mobile-nav">
         <div class="nav-links">
-          <router-link to="/" @click="toggleMenu">Home</router-link>
-          <router-link to="/projects" @click="toggleMenu">Projects</router-link>
-          <router-link to="/about" @click="toggleMenu">About</router-link>
-          <router-link to="/contact" @click="toggleMenu">Contact</router-link>
+          <RouterLink
+            v-for="item in navLinks"
+            :key="item.to"
+            :to="item.to"
+            @click="toggleMenu"
+          >
+            {{ item.label }}
+          </RouterLink>
         </div>
+
         <div class="divider"></div>
+
         <div class="social-links">
           <a
-            href="https://github.com/stephen-kern"
+            v-for="s in socialLinks"
+            :key="s.href"
+            :href="s.href"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github
+            {{ s.label }}
           </a>
-          <a
-            href="https://www.linkedin.com/in/stephenkern96/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a href="mailto:stephenkern96@gmail.com">Email</a>
         </div>
       </aside>
     </transition>
-  </div>
-  <div v-if="isOpen" class="backdrop" @click="toggleMenu"></div>
+  </header>
+
+  <!-- Backdrop -->
+  <div
+    v-if="isOpen"
+    class="backdrop"
+    @click="toggleMenu"
+    aria-hidden="true"
+  ></div>
 </template>
 
 <style scoped>
@@ -104,7 +129,7 @@ h2 a {
 .desktop-nav a {
   font-size: 1.2rem;
   cursor: pointer;
-  color: white;
+  color: var(--text);
   position: relative;
 }
 
@@ -146,7 +171,7 @@ h2 a {
   display: block;
   height: 3px;
   width: 100%;
-  background: #fff;
+  background: var(--text);
   border-radius: 3px;
   transition: all 0.4s ease;
 }
@@ -197,7 +222,7 @@ h2 a {
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: var(--text);
   font-size: 1.5rem;
   font-weight: 500;
 }
