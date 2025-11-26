@@ -4,6 +4,12 @@ import jwp from "../assets/Jake-Wilson-Art.webp";
 import workcard from "../assets/programming.webp";
 import advgen from "../assets/advice-genie.webp";
 
+interface ProjectLink {
+  label: string;
+  type: "internal" | "external";
+  url: string;
+}
+
 interface Project {
   id: number;
   title: string;
@@ -11,6 +17,7 @@ interface Project {
   img?: string;
   ghLink?: string;
   liveLink?: string;
+  links: ProjectLink[];
 }
 
 const projectsData: Project[] = [
@@ -19,26 +26,52 @@ const projectsData: Project[] = [
     title: "Professional Projects",
     description:
       "Professional WordPress & web development projects available upon request. For more information, please checkout my resume found on my contact page.",
-    liveLink: "/contact",
     img: workcard,
+    links: [
+      {
+        label: "Contact Me",
+        type: "internal",
+        url: "/contact",
+      },
+    ],
   },
   {
     id: 2,
     title: "Fine Arts Portfolio",
     description:
       "A React-based fine arts portfolio created for a friend. It uses MUI for structure and styling, React-Modal-Image for interactive galleries, and EmailJS for simple, secure form submissions.",
-    ghLink: "https://github.com/stephen-kern/Jake-Wilson-Portfolio",
-    liveLink: "https://jake-wilson-portfolio.vercel.app/",
     img: jwp,
+    links: [
+      {
+        label: "View Live",
+        type: "external",
+        url: "https://jake-wilson-portfolio.vercel.app/",
+      },
+      {
+        label: "View Code",
+        type: "external",
+        url: "https://github.com/stephen-kern/Jake-Wilson-Portfolio",
+      },
+    ],
   },
   {
     id: 3,
     title: "Advice Genie",
     description:
       "This is a straighforward React web app that generates a random piece of advice from the AdviceSlipAPI. Made for fun to practice API consumption.",
-    ghLink: "https://github.com/stephen-kern/advicegenie",
-    liveLink: "https://advicegenie.vercel.app/",
     img: advgen,
+    links: [
+      {
+        label: "View Live",
+        type: "external",
+        url: "https://advicegenie.vercel.app/",
+      },
+      {
+        label: "View Code",
+        type: "external",
+        url: "https://github.com/stephen-kern/advicegenie",
+      },
+    ],
   },
 ];
 
@@ -55,8 +88,7 @@ const tba = "More projects and case studies coming soon.";
         :img="project.img"
         :title="project.title"
         :description="project.description"
-        :gh-link="project.ghLink"
-        :live-link="project.liveLink"
+        :links="project.links"
       />
     </div>
   </section>

@@ -3,8 +3,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   img?: string;
-  ghLink?: string;
-  liveLink?: string;
+  links?: Array<{label: string; url: string; type?: "internal" | "external";}>;
 }
 
 const props = defineProps<ProjectCardProps>();
@@ -24,18 +23,18 @@ const props = defineProps<ProjectCardProps>();
         <h3 class="card-title">{{ props.title }}</h3>
         <p class="card-description">{{ props.description }}</p>
       </div>
-      <div class="card-buttons">
-        <button v-if="props.liveLink" class="primary-button">
-          <a :href="props.liveLink" target="_blank" rel="noopener noreferer"
-            >Learn More</a
-          >
-        </button>
-
-        <button v-if="props.ghLink" class="primary-button">
-          <a :href="props.ghLink" target="_blank" rel="noopener noreferer"
-            >GitHub Repo</a
-          >
-        </button>
+      <div v-if="props.links" class="card-buttons">
+        <component
+        v-for="(link, index) in props.links"
+        :key="index"
+        :is="link.type === 'internal' ? 'router-link' : 'a'"
+        :to="link.type === 'internal' ? link.url : undefined"
+        :href="link.type === 'external' ? link.url : undefined"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+          {{ link.label }}
+        </component>
       </div>
     </div>
   </div>
