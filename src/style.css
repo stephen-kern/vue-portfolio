@@ -14,8 +14,9 @@
   /* Colors */
   --text: #222222;
   --background: #faf7f1;
+  --background-hover: rgba(255, 255, 255, 0.05);
   --primary: #2d8e77; /* forest green accent */
-  --primary-hover: #25695f;
+  --primary-hover: color-mix(in srgb, var(--primary), black 20%);
   --accent: #cc6e4a; /* warm terracotta highlight */
   --hover: #b55b3d;
 
@@ -134,12 +135,19 @@ button,
   border-radius: 0.5rem;
   text-decoration: none;
   transition: background-color 0.25s ease, color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease, transform 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-family: var(--font-body);
   font-weight: 500;
   border: none;
+}
+
+button:hover,
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 .primary-button,
@@ -155,17 +163,17 @@ button.primary-button:hover {
 
 .secondary-button,
 button.secondary-button {
-  background-color: transparent;
-  color: var(--divider);
-  outline: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+  outline: 2px solid var(--accent);
   outline-offset: -2px;
+  transition: all 0.25s ease;
 }
 
 .secondary-button:hover,
 button.secondary-button:hover {
-  background-color: var(--divider);
-  color: var(--primary);
-  outline: none;
+  background: var(--accent);
+  outline: var(--primary);
 }
 
 /* ==============================
@@ -183,7 +191,6 @@ button.secondary-button:hover {
     --background: #0f0f10;
     --text: #e6e6e6;
     --primary: #0d59ab;
-    --primary-hover: #2a75c4;
     --accent: #2d8e77;
     --hover: #cc6e4a;
   }
