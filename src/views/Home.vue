@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const name: string = "Stephen Kern";
-import SkillsBar from "../components/SkillsBar.vue";
-import { ChevronsDown } from "lucide-vue-next";
+const name: string = "Stephen";
+// import SkillsBar from "../components/SkillsBar.vue";
+// import { ChevronsDown } from "lucide-vue-next";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const scrollY = ref(0);
@@ -20,107 +20,101 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="cta">
-    <h1><span style="font-size: 15px">Hello, I'm </span> <br />{{ name }}</h1>
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="intro-label">Hello, I'm</p>
+        <h1>
+          {{ name }}
+        </h1>
 
-    <h2>Detail-driven development with real-world impact</h2>
+        <h2>Detail-driven development with real-world impact</h2>
 
-    <div
-      class="cta-space"
-      :style="{
-        opacity: Math.max(1 - scrollY / 550, 0), // Fade out as you scroll down
-        transition: 'opacity 0.3s ease',
-      }"
-    >
-      <h4>Check out what's down here!</h4>
-      <ChevronsDown class="chevrons" :size="72" />
-    </div>
-  </section>
-  <section class="story-section">
-    <div class="story-grid">
-      <img
-        class="pfp"
-        src="../assets/summer24square.JPG"
-        alt="stephen kern in the wild"
-      />
-
-      <div>
-        <p>
-          I’m a Front-End Developer who builds clean, user-friendly websites
-          that support business goals, and I love getting outside to recharge.
-          <br /><br />
-          At Enertech Global, I maintain and enhance WordPress and Joomla!
-          sites, develop custom PHP features, and create AJAX-powered solutions
-          for smooth user experiences.
-          <br /><br />
-          I’ve always been strongest on the front end, where I can bring designs
-          to life with clean and functional interfaces. I’ve also explored
-          backend technologies through a full-stack bootcamp, and I’m continuing
-          to learn in that area so I can grow into a more versatile and
-          well-rounded developer.
+        <p class="cta">
+          I'm a Front-End Developer who builds clean, user-friendly websites
+          that support business goals. At Enertech Global, I develop custom
+          WordPress and PHP solutions to create smooth, responsive user
+          experiences.
         </p>
-        <br /><br />
-        <router-link to="/about" class="primary-button">Learn More</router-link>
+
+        <div class="hero-buttons">
+          <router-link to="/projects" class="primary-button"
+            >View Projects</router-link
+          >
+          <router-link to="/about" class="secondary-button">About Me</router-link>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img
+          class="pfp"
+          src="../assets/blob-pic.png"
+          alt="stephen kern in the wild"
+        />
       </div>
     </div>
-    <SkillsBar />
   </section>
+  
 </template>
 
 <style scoped>
-.cta {
+.hero__inner {
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  max-width: 1200px;
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 80vh;
-  padding: 2em;
-}
-
-.cta-space {
-  text-align: center;
-  margin-top: auto;
-}
-.cta h2 {
-  font-size: 4rem;
-}
-
-.story-grid {
-  height: 85vh;
-  padding: 2em 0;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
+.hero__content{
+  flex: 1 1 60%;
 }
 
-.chevrons {
-  animation: pulse 2s infinite;
+.intro-label{
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  opacity: 0.9;
+  line-height: 1;
+  font-family: var(--font-body);
 }
 
-.story-grid {
+.hero-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5em;
+  gap: 2.5rem;
+  margin-top: 2rem;
 }
 
-p {
-  font-size: 1.3rem;
+.cta{
+  font-size: clamp(0.9rem, 5vw, 1.3rem);
   line-height: 1.5;
+  font-family: var(--font-body);
+}
+
+.hero__image{
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
 }
 
 .pfp {
-  border-radius: 50%;
-  max-width: 500px;
+  max-width: clamp(300px, 40vw, 100%);
   height: auto;
+}
+
+@media (max-width: 968px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .hero__content{
+    flex: none;
+  }
+
+  .hero-buttons{
+    justify-content: center;
+  }
 }
 </style>

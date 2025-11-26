@@ -20,8 +20,10 @@ const props = defineProps<ProjectCardProps>();
     />
 
     <div class="card-info">
-      <h3 class="card-title">{{ props.title }}</h3>
-      <p class="card-description">{{ props.description }}</p>
+      <div>
+        <h3 class="card-title">{{ props.title }}</h3>
+        <p class="card-description">{{ props.description }}</p>
+      </div>
       <div class="card-buttons">
         <button v-if="props.liveLink" class="primary-button">
           <a :href="props.liveLink" target="_blank" rel="noopener noreferer"
@@ -31,7 +33,7 @@ const props = defineProps<ProjectCardProps>();
 
         <button v-if="props.ghLink" class="primary-button">
           <a :href="props.ghLink" target="_blank" rel="noopener noreferer"
-            >GitHub Link</a
+            >GitHub Repo</a
           >
         </button>
       </div>
@@ -52,12 +54,15 @@ const props = defineProps<ProjectCardProps>();
 .card-image {
   max-width: 100%;
   object-fit: cover;
-  border-radius: 1rem 1rem 0 0
+  border-radius: 1rem 1rem 0 0;
 }
 
 .card-info {
   padding: 1rem 2rem 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 .card-title {

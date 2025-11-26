@@ -17,12 +17,7 @@ const year = new Date().getFullYear();
         rel="noopener noreferrer"
         ><Linkedin
       /></a>
-      <a
-        href="mailto: stephenkern96@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        ><Mail
-      /></a>
+      <a href="mailto:stephenkern96@gmail.com"><Mail /></a>
     </div>
     <p>© Stephen Kern {{ year }}</p>
   </footer>
@@ -39,7 +34,7 @@ footer {
 
 .footer-social-container {
   display: flex;
-  align-items: center;;
+  align-items: center;
   gap: 1rem;
   margin-right: 2rem;
 }

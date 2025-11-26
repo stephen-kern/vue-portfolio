@@ -44,8 +44,8 @@ const projectsData: Project[] = [
 </script>
 
 <template>
-  <section class="grid-container">
-    <h2 class="section-title">Projects</h2>
+  <section class="grid-section">
+    <h2>Projects</h2>
     <div class="columns">
       <Card
         v-for="project in projectsData"
@@ -61,15 +61,14 @@ const projectsData: Project[] = [
 </template>
 
 <style scoped>
-.grid-container {
-  padding: 1rem 2rem;
+
+.grid-section{
+  padding: 2rem 0;
 }
 
 .columns {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 </style>
