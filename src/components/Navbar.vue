@@ -58,7 +58,7 @@ const socialLinks = [
     <!-- Mobile Menu -->
     <transition name="slide">
       <aside v-if="isOpen" class="mobile-nav">
-        <div class="nav-links">
+        <div class="mobile-nav-links">
           <RouterLink
             v-for="item in navLinks"
             :key="item.to"
@@ -202,9 +202,10 @@ h2 a {
   overflow: hidden;
   height: 100dvh;
   height: 100vh;
-  width: min(80%, 300px);
+  width: min(70%, 300px);
   background-color: #212121;
   padding: 2rem 1.5rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -214,21 +215,21 @@ h2 a {
 }
 
 
-.nav-links {
+.mobile-nav-links {
   display: flex;
   flex-direction: column;
-  margin: 3rem 0 auto 0;
-  gap: 2rem;
+  margin: 2.5rem 0 auto 0;
+  gap: 1.5rem;
 }
 
-.nav-links a {
+.mobile-nav-links a {
   color: var(--text);
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.mobile-nav .nav-links a:active,
-.mobile-nav .nav-links a:focus-visible,
+.mobile-nav .mobile-nav-links a:active,
+.mobile-nav .mobile-nav-links a:focus-visible,
 .social-links a:active,
 .social-links a:focus-visible {
   color: var(--primary);
@@ -246,7 +247,7 @@ h2 a {
 .mobile-nav .social-links {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .mobile-nav .social-links a {
