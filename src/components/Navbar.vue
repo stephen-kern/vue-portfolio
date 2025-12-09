@@ -205,11 +205,9 @@ h2 a {
   width: min(70%, 300px);
   background-color: #212121;
   padding: 2rem 1.5rem;
-  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   z-index: 1000;
   border-left: 2px solid var(--primary);
 }
@@ -218,7 +216,7 @@ h2 a {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 0 auto 0;
+  margin: 2.5rem 0;
   gap: 1.5rem;
 }
 
