@@ -3,8 +3,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   img?: string;
-  ghLink?: string;
-  liveLink?: string;
+  links?: Array<{ label: string; url: string; type?: "internal" | "external" }>;
 }
 
 const props = defineProps<ProjectCardProps>();
@@ -19,23 +18,31 @@ const props = defineProps<ProjectCardProps>();
       class="card-image"
     />
 
-    <div class="card-info">
-      <div>
+    <div class="card-content">
+      <div class="card-info">
         <h3 class="card-title">{{ props.title }}</h3>
         <p class="card-description">{{ props.description }}</p>
       </div>
-      <div class="card-buttons">
-        <button v-if="props.liveLink" class="primary-button">
-          <a :href="props.liveLink" target="_blank" rel="noopener noreferer"
-            >Learn More</a
+      <div v-if="props.links" class="card-buttons">
+        <template v-for="(link, index) in props.links" :key="index">
+          <router-link
+            v-if="link.type === 'internal'"
+            :to="link.url"
+            :class="index === 0 ? 'primary-button' : 'secondary-button'"
           >
-        </button>
+            {{ link.label }}
+          </router-link>
 
-        <button v-if="props.ghLink" class="primary-button">
-          <a :href="props.ghLink" target="_blank" rel="noopener noreferer"
-            >GitHub Repo</a
+          <a
+            v-else
+            :href="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="index === 0 ? 'primary-button' : 'secondary-button'"
           >
-        </button>
+            {{ link.label }}
+          </a>
+        </template>
       </div>
     </div>
   </div>
@@ -44,7 +51,7 @@ const props = defineProps<ProjectCardProps>();
 <style scoped>
 .card {
   border-radius: 2rem 2rem 1rem 1rem;
-  background: white;
+  background: var(--divider);
   padding: 0;
   min-width: 300px;
   max-width: 400px;
@@ -57,7 +64,7 @@ const props = defineProps<ProjectCardProps>();
   border-radius: 1rem 1rem 0 0;
 }
 
-.card-info {
+.card-content {
   padding: 1rem 2rem 1.5rem;
   text-align: center;
   display: flex;
@@ -73,6 +80,7 @@ const props = defineProps<ProjectCardProps>();
 .card-description {
   font-size: 1rem;
   color: #555;
+  flex: 1;
 }
 .card-buttons {
   display: flex;
@@ -80,11 +88,10 @@ const props = defineProps<ProjectCardProps>();
   gap: 2.5rem;
   margin-top: 1rem;
 }
-button {
-  border: none;
-}
-button a {
-  color: white;
-  text-decoration: none;
+
+@media screen and (max-width: 678px) {
+  .card-buttons {
+    gap: 1.5rem;
+  }
 }
 </style>

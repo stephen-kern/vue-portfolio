@@ -141,6 +141,7 @@ button,
   font-family: var(--font-body);
   font-weight: 500;
   border: none;
+  white-space: nowrap;
 }
 
 button:hover,

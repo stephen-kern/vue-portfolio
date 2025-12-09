@@ -51,7 +51,7 @@ const email: string = "stephenkern96@gmail.com";
 <style scoped>
 
 .contact-section{
-  padding: 3rem 1.5rem;
+  padding: 3rem 1rem;
   text-align: center;
 }
 
@@ -76,7 +76,7 @@ h2 {
 .contact-links {
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
@@ -87,7 +87,7 @@ h2 {
   align-items: center;
   gap: 0.55rem;
   background: #FFF5E3;
-  padding: 1.5rem;
+  padding: 1.3rem;
   border-radius: 16px;
   width: 140px;
   text-decoration: none;
@@ -105,8 +105,8 @@ h2 {
 }
 
 .contact-card .icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 }
 
 .cta-text {
