@@ -58,7 +58,7 @@ const projectsData: Project[] = [
     id: 3,
     title: "Advice Genie",
     description:
-      "This is a straighforward React web app that generates a random piece of advice from the AdviceSlipAPI. Made for fun to practice API consumption.",
+      "A simple web app that fetches a random piece of advice from the AdviceSlipAPI. It was built as a small project to practice working with APIs, managing state, and structuring components in React.",
     img: advgen,
     links: [
       {

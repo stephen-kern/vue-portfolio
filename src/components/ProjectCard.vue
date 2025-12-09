@@ -3,7 +3,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   img?: string;
-  links?: Array<{label: string; url: string; type?: "internal" | "external";}>;
+  links?: Array<{ label: string; url: string; type?: "internal" | "external" }>;
 }
 
 const props = defineProps<ProjectCardProps>();
@@ -24,17 +24,25 @@ const props = defineProps<ProjectCardProps>();
         <p class="card-description">{{ props.description }}</p>
       </div>
       <div v-if="props.links" class="card-buttons">
-        <component
-        v-for="(link, index) in props.links"
-        :key="index"
-        :is="link.type === 'internal' ? 'router-link' : 'a'"
-        :to="link.type === 'internal' ? link.url : undefined"
-        :href="link.type === 'external' ? link.url : undefined"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-          {{ link.label }}
-        </component>
+        <template v-for="(link, index) in props.links" :key="index">
+          <router-link
+            v-if="link.type === 'internal'"
+            :to="link.url"
+            :class="index === 0 ? 'primary-button' : 'secondary-button'"
+          >
+            {{ link.label }}
+          </router-link>
+
+          <a
+            v-else
+            :href="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="index === 0 ? 'primary-button' : 'secondary-button'"
+          >
+            {{ link.label }}
+          </a>
+        </template>
       </div>
     </div>
   </div>
@@ -80,11 +88,10 @@ const props = defineProps<ProjectCardProps>();
   gap: 2.5rem;
   margin-top: 1rem;
 }
-button {
-  border: none;
-}
-button a {
-  color: white;
-  text-decoration: none;
+
+@media screen and (max-width: 678px) {
+  .card-buttons {
+    gap: 1.5rem;
+  }
 }
 </style>
