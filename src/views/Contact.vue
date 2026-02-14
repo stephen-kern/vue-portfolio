@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import resumepdf from "../assets/SK25.pdf";
+import resumepdf from "../assets/SK26.pdf";
 import {
   Github,
   Linkedin,
